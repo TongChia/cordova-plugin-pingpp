@@ -1,49 +1,40 @@
-# Cordova Hello World Plugin
+# Cordova Pingpp Plugin
 
-Simple plugin that returns your string prefixed with hello.
 
-Greeting a user with "Hello, world" is something that could be done in JavaScript. This plugin provides a simple example demonstrating how Cordova plugins work.
 
 ## Using
-Clone the plugin
 
-    $ git clone https://github.com/don/cordova-plugin-hello.git
-
-Create a new Cordova Project
-
-    $ cordova create hello com.example.helloapp Hello
-    
 Install the plugin
 
-    $ cd hello
-    $ cordova plugin install ../cordova-plugin-hello
-    
+    $ cordova plugin install cordova-plugin-pingpp --variable URL_SCHEME=YOUR-URL-SCHEME
 
-Edit `www/js/index.js` and add the following code inside `onDeviceReady`
+or install form github
 
-```js
-    var success = function(message) {
-        alert(message);
-    }
+    $ cordova plugin install git@github.com:TongChia/cordova-plugin-pingpp.git --variable URL_SCHEME=YOUR-URL-SCHEME
 
-    var failure = function() {
-        alert("Error calling Hello Plugin");
-    }
+javascript
 
-    hello.greet("World", success, failure);
-```
-
-Install iOS or Android platform
-
-    cordova platform add ios
-    cordova platform add android
-    
-Run the code
-
-    cordova run 
+	```
+	pingpp.createPayment(charge, function(result){
+			console.log('suc: '+result)  //"success"
+		}, function(result){
+			console.log('err: '+result)  //"fail"|"cancel"|"invalid"
+	});
+	```
 
 ## More Info
 
-For more information on setting up Cordova see [the documentation](http://cordova.apache.org/docs/en/4.0.0/guide_cli_index.md.html#The%20Command-Line%20Interface)
+Base on pingpp native sdk
 
-For more info on plugins see the [Plugin Development Guide](http://cordova.apache.org/docs/en/4.0.0/guide_hybrid_plugins_index.md.html#Plugin%20Development%20Guide)
+[pingpp-ios](https://github.com/PingPlusPlus/pingpp-ios)
+
+[pingpp-android](https://github.com/PingPlusPlus/pingpp-android)
+
+### Issues
+[issues](https://github.com/TongChia/cordova-plugin-pingpp/issues)
+
+#### 如果本插件给您或您的公司带来帮助 请别忘记点击右上角的【Star】
+
+## License
+
+Apache License 2.0
