@@ -10,7 +10,7 @@ Install the plugin
 
 or install form github
 
-    $ cordova plugin install git@github.com:TongChia/cordova-plugin-pingpp.git --variable URL_SCHEME=YOUR-URL-SCHEME
+    $ cordova plugin install https://github.com/TongChia/cordova-plugin-pingpp.git --variable URL_SCHEME=YOUR-URL-SCHEME
 
 javascript
 
