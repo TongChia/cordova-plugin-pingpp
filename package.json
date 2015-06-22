@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "pingpp cordova/phonegap plugin",
   "cordova": {
-    "id": "cordova-plugin-pingpp",
+    "id": "co.airsia.cordova.pingpp",
     "platforms": [
       "android",
       "ios"
