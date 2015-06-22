@@ -14,13 +14,13 @@ or install form github
 
 javascript
 
-	```
-	pingpp.createPayment(charge, function(result){
-			console.log('suc: '+result)  //"success"
-		}, function(result){
-			console.log('err: '+result)  //"fail"|"cancel"|"invalid"
-	});
-	```
+```js
+pingpp.createPayment(charge, function(result){
+    console.log('suc: '+result)  //"success"
+  }, function(result){
+    console.log('err: '+result)  //"fail"|"cancel"|"invalid"
+});
+```
 
 ## More Info
 
