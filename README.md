@@ -6,7 +6,7 @@
 
 Install the plugin
 
-    $ cordova plugin install cordova-plugin-pingpp --variable URL_SCHEME=YOUR-URL-SCHEME
+    $ cordova plugin install co.airsia.cordova.pingpp --variable URL_SCHEME=YOUR-URL-SCHEME
 
 or install form github
 
