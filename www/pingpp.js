@@ -1,12 +1,21 @@
-/*global cordova, module*/
+/**
+ * ping++, cordova, module
+ * Author: Tong Chia
+ * License: Apache License 2.0
+ * */
 
 module.exports = {
     /**
-     * @param charge
-     * @param successCallback ['success']
-     * @param errorCallback ['fail'|'cancel'|'invalid']
+     * @param {object|string} charge
+     * @param {Function} successCallback ['success']
+     * @param {Function} errorCallback ['fail'|'cancel'|'invalid']
      */
     createPayment: function (charge, successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "PingppPlugin", "createPayment", [JSON.stringify(charge)]);
+        if (typeof charge === 'string') { JSON.parse(charge); }
+        if (charge.object === 'charge') {
+            cordova.exec(successCallback, errorCallback, "PingppPlugin", "createPayment", [JSON.stringify(charge)]);
+        } else {
+            return errorCallback('wrong charge object');
+        }
     }
 };
