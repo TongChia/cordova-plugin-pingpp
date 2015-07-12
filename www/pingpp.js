@@ -6,7 +6,7 @@
 
 module.exports = {
     /**
-     * @param {object|string} charge
+     * @param {object|string} charge (JSON string or object)
      * @param {Function} successCallback ['success']
      * @param {Function} errorCallback ['fail'|'cancel'|'invalid']
      */
