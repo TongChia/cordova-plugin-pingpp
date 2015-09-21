@@ -1,16 +1,26 @@
 # Cordova Pingpp Plugin
 
-
+>未能测试全部功能, 如发现问题请及时指正, 谢谢~
 
 ## Using
 
 Install the plugin
 
-    $ cordova plugin install co.airsia.cordova.pingpp --variable URL_SCHEME=YOUR-URL-SCHEME
+```sh
+# 暂未上传 cordova 插件库 请先从 github 或 coding 安装
+```
 
 or install form github
 
-    $ cordova plugin install https://github.com/TongChia/cordova-plugin-pingpp.git --variable URL_SCHEME=YOUR-URL-SCHEME
+```sh
+$ cordova plugin install https://github.com/TongChia/cordova-plugin-pingpp.git --variable URL_SCHEME=YOUR-URL-SCHEME
+```
+
+form coding.net
+
+```sh
+$ cordova plugin install https://git.coding.net/tongchia/cordova-plugin-pingpp.git --variable URL_SCHEME=YOUR-URL-SCHEME
+```
 
 javascript
 
@@ -20,6 +30,24 @@ pingpp.createPayment(charge, function(result){
   }, function(result){
     console.log('err: '+result)  //"fail"|"cancel"|"invalid"
 });
+```
+
+with Angular (#ionic)
+
+```js
+angular.module('yourApp', [])
+  .factory('$pingpp', ['$q', '$window', function ($q, $window) {
+    return {
+      createPayment: function (charge) {
+        return $q(function (resolve, reject) {
+          $window.pingpp.createPayment(charge, function () {
+            resolve();
+          }, function (err) {
+            reject(err);
+          });
+        });
+      }
+    },
 ```
 
 ## More Info
