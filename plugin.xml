@@ -94,6 +94,16 @@
         <!-- wx -->
         <source-file src="libs/ios/Channels/Wx/libpingpp+wx.a" framework="true"/>
         <source-file src="libs/ios/Channels/Wx/libWeChatSDK.a" framework="true"/>
+        <header-file src="libs/ios/Channels/Wx/WXApi.h" />
+        <header-file src="libs/ios/Channels/Wx/WXApiObject.h" />
+
+        <!-- UnionPay -->
+        <source-file src="libs/ios/Channels/UnionPay/libpingpp+up.a" framework="true"/>
+        <source-file src="libs/ios/Channels/UnionPay/libUPPayPlugin.a" framework="true"/>
+
+        <!-- ApplePay -->
+        <source-file src="libs/ios/Channels/ApplePay/libpingpp+applepay.a" framework="true"/>
+        <source-file src="libs/ios/Channels/ApplePay/Pingpp+ApplePay.a" framework="true"/>
 
         <!-- pingxx -->
         <resource-file src="libs/ios/Pingpp.bundle"/>
