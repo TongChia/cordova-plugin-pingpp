@@ -47,7 +47,8 @@ angular.module('yourApp', [])
           });
         });
       }
-    },
+    };
+  }]);
 ```
 
 ## More Info
