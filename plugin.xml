@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         id="co.airsia.cordova.pingpp"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        version="0.0.1">
+        version="0.0.5">
 
     <name>Pingpp</name>
 

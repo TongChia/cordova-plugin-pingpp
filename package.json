@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-pingpp",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "pingpp cordova/phonegap plugin",
   "cordova": {
     "id": "co.airsia.cordova.pingpp",
