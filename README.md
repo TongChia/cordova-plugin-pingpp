@@ -13,13 +13,13 @@ Install the plugin
 or install form github
 
 ```sh
-$ cordova plugin install https://github.com/TongChia/cordova-plugin-pingpp.git --variable URL_SCHEME=YOUR-URL-SCHEME
+$ cordova plugin add https://github.com/TongChia/cordova-plugin-pingpp.git --variable URL_SCHEME=YOUR-URL-SCHEME
 ```
 
 form coding.net
 
 ```sh
-$ cordova plugin install https://git.coding.net/tongchia/cordova-plugin-pingpp.git --variable URL_SCHEME=YOUR-URL-SCHEME
+$ cordova plugin add https://git.coding.net/tongchia/cordova-plugin-pingpp.git --variable URL_SCHEME=YOUR-URL-SCHEME
 ```
 
 javascript
