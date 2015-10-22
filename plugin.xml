@@ -103,7 +103,7 @@
 
         <!-- ApplePay -->
         <source-file src="libs/ios/Channels/ApplePay/libpingpp+applepay.a" framework="true"/>
-        <source-file src="libs/ios/Channels/ApplePay/Pingpp+ApplePay.h" />
+        <header-file src="libs/ios/Channels/ApplePay/Pingpp+ApplePay.h" />
 
         <!-- pingxx -->
         <resource-file src="libs/ios/Pingpp.bundle"/>
