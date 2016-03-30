@@ -14,7 +14,7 @@ install form github
 $ cordova plugin add https://github.com/TongChia/cordova-plugin-pingpp.git
 ```
 
-#### 包含百度钱包/银联支付/ApplePay (Coming soon)
+#### 包含百度钱包/银联支付/ApplePay
 
 ```sh
 $ cordova plugin add https://github.com/TongChia/cordova-plugin-pingpp.git#all
@@ -66,8 +66,9 @@ Base on pingpp native sdk
 [issues](https://github.com/TongChia/cordova-plugin-pingpp/issues)
 
 ## To do
-- [ ] 包含百度钱包/银联支付/ApplePay的全功能版本
+- [x] 包含百度钱包/银联支付/ApplePay的全功能版本
 - [ ] 壹收款
+- [ ] 完善测试 Demo 工程并发布到 GitHub
 
 ## Next
 - [ ] 使用 Ping++ Js SDK 支持其他平台
