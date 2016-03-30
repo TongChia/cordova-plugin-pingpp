@@ -1,4 +1,4 @@
-package co.airsia.cordova;
+package me.tongchia.cordova;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -21,17 +21,13 @@ public class PingppPlugin extends CordovaPlugin {
         if (action.equals("createPayment")) {
             String charge = data.get(0).toString();
 
-            Intent intent = new Intent();
-            String packageName = this.cordova.getActivity().getPackageName();
-            ComponentName componentName = new ComponentName(packageName, packageName + ".wxapi.WXPayEntryActivity");
-            intent.setComponent(componentName);
+            Intent intent = new Intent(this.cordova.getActivity(), PaymentActivity.class);
             intent.putExtra(PaymentActivity.EXTRA_CHARGE, charge);
             this.cordova.startActivityForResult(this, intent, REQUEST_CODE_PAYMENT);
 
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     @Override

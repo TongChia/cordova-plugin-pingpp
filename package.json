@@ -1,9 +1,9 @@
 {
   "name": "cordova-plugin-pingpp",
-  "version": "0.0.5",
+  "version": "1.0.1",
   "description": "pingpp cordova/phonegap plugin",
   "cordova": {
-    "id": "co.airsia.cordova.pingpp",
+    "id": "me.tongchia.cordova.pingpp",
     "platforms": [
       "android",
       "ios"
@@ -17,12 +17,14 @@
     "pingpp",
     "pingxx",
     "ping++",
-    "cordova",
-    "phonegap",
-    "cordova-android",
-    "cordova-ios",
     "alipay",
-    "weixin",
+    "wechat",
+    "applepay",
+    "unionpay",
+    "baidupay",
+    "壹收款",
+    "百度钱包",
+    "百度支付",
     "微信支付",
     "支付宝",
     "银联"
@@ -32,5 +34,5 @@
   "bugs": {
     "url": "https://github.com/TongChia/cordova-plugin-pingpp/issues"
   },
-  "homepage": "https://github.com/TongChia/cordova-plugin-pingpp#readme"
+  "homepage": "https://github.com/TongChia/cordova-plugin-pingpp"
 }

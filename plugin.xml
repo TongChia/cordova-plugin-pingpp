@@ -1,36 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="co.airsia.cordova.pingpp"
+        id="me.tongchia.cordova.pingpp"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        version="0.0.5">
+        version="1.0.1">
 
     <name>Pingpp</name>
-
-    <description>cordova plugin for pingxx</description>
-
-    <author>tongChia@Airsia.co</author>
-
-    <keywords>pingpp,pingxx,ping++,alipay,weixin,pay</keywords>
-
+    <description>cordova plugin for ping++</description>
+    <author>tongchia</author>
+    <keywords>pingpp,pingxx,ping++,pingppone,alipay,weixin,bdwallet,unionpay,applepay</keywords>
     <license>Apache 2.0</license>
-
-    <preference name="URL_SCHEME" />
-
     <engines>
-        <engine name="cordova" version=">=3.4.0"/>
+        <engine name="cordova" version=">=6.0.0"/>
     </engines>
-
-    <asset src="www/pingpp.js" target="js/pingpp.js"/>
-
     <js-module src="www/pingpp.js" name="pingpp">
         <clobbers target="pingpp" />
     </js-module>
 
     <platform name="android">
-
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="PingppPlugin">
-                <param name="android-package" value="co.airsia.cordova.PingppPlugin"/>
+                <param name="android-package" value="me.tongchia.cordova.PingppPlugin"/>
             </feature>
         </config-file>
 
@@ -40,16 +29,12 @@
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-            <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-            <uses-permission android:name="android.permission.SEND_SMS" />
-            <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-            <uses-permission android:name="android.permission.READ_SMS" />
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="application">
             <activity
                     android:name="com.pingplusplus.android.PaymentActivity"
+                    android:configChanges="orientation|screenSize"
                     android:launchMode="singleTop"
                     android:theme="@android:style/Theme.Translucent.NoTitleBar" />
             <activity-alias
@@ -68,58 +53,37 @@
                     android:screenOrientation="behind" />
         </config-file>
 
-        <source-file src="src/android/PingppPlugin.java" target-dir="src/co/airsia/cordova/"/>
-        <source-file src="libs/android/alipaysdk.jar" target-dir="libs" framework="true"/>
-        <source-file src="libs/android/alipaysecsdk.jar" target-dir="libs" framework="true"/>
-        <source-file src="libs/android/alipayutdid.jar" target-dir="libs" framework="true"/>
-        <source-file src="libs/android/libammsdk.jar" target-dir="libs" framework="true"/>
-        <source-file src="libs/android/libpingpp.jar" target-dir="libs" framework="true"/>
-        <source-file src="libs/android/UPPayAssistEx.jar" target-dir="libs" framework="true"/>
+        <source-file src="src/android/PingppPlugin.java" target-dir="src/me/tongchia/cordova/"/>
+        <source-file src="sdk/android/lib/pingpp/libs/alipaySingle-20160111.jar" target-dir="libs"/>
+        <source-file src="sdk/android/lib/pingpp/libs/libammsdk.jar" target-dir="libs"/>
+        <source-file src="sdk/android/lib/pingpp/libs/libpingpp-2.1.1.jar" target-dir="libs"/>
     </platform>
+
     <platform name="ios">
-        <!-- framework -->
         <framework src="CFNetwork.framework" />
         <framework src="SystemConfiguration.framework" />
         <framework src="Security.framework" />
-        <framework src="libc++.dylib" />
-        <framework src="libz.dylib" />
-        <framework src="libsqlite3.0.dylib" />
+        <framework src="QuartzCore.framework" />
+        <framework src="CoreTelephony.framework" />
+        <framework src="libc++.tbd" />
+        <framework src="libz.tbd" />
+        <framework src="libsqlite3.0.tbd" />
+        <framework src="libstdc++.tbd" />
 
-        <!-- Channels -->
-        <!-- Alipay -->
-        <resource-file src="libs/ios/Channels/Alipay/AlipaySDK.bundle"/>
-        <framework src="libs/ios/Channels/Alipay/AlipaySDK.framework" custom="true"/>
-        <source-file src="libs/ios/Channels/Alipay/libpingpp+alipay.a" framework="true"/>
-
-        <!-- wx -->
-        <source-file src="libs/ios/Channels/Wx/libpingpp+wx.a" framework="true"/>
-        <source-file src="libs/ios/Channels/Wx/libWeChatSDK.a" framework="true"/>
-        <header-file src="libs/ios/Channels/Wx/WXApi.h" />
-        <header-file src="libs/ios/Channels/Wx/WXApiObject.h" />
-
-        <!-- UnionPay -->
-        <source-file src="libs/ios/Channels/UnionPay/libpingpp+up.a" framework="true"/>
-        <source-file src="libs/ios/Channels/UnionPay/libUPPayPlugin.a" framework="true"/>
-
-        <!-- ApplePay -->
-        <source-file src="libs/ios/Channels/ApplePay/libpingpp+applepay.a" framework="true"/>
-        <header-file src="libs/ios/Channels/ApplePay/Pingpp+ApplePay.h" />
-
-        <!-- pingxx -->
-        <resource-file src="libs/ios/Pingpp.bundle"/>
-        <source-file src="libs/ios/libpingpp.a" framework="true"/>
-        <header-file src="libs/ios/Pingpp.h"/>
-
-        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
-            <array>
-                <dict>
-                    <key>CFBundleURLSchemes</key>
-                    <array>
-                        <string>$URL_SCHEME</string>
-                    </array>
-                </dict>
-            </array>
-        </config-file>
+        <resource-file src="sdk/ios/lib/Channels/Alipay/AlipaySDK.bundle"/>
+        <framework src="sdk/ios/lib/Channels/Alipay/AlipaySDK.framework" custom="true"/>
+        <source-file src="sdk/ios/lib/Channels/Alipay/libpingpp+alipay.a" framework="true"/>
+        <source-file src="sdk/ios/lib/Channels/Wx/libpingpp+wx.a" framework="true"/>
+        <source-file src="sdk/ios/lib/Channels/Wx/libWeChatSDK.a" framework="true"/>
+        <header-file src="sdk/ios/lib/Channels/Wx/WXApi.h" />
+        <header-file src="sdk/ios/lib/Channels/Wx/WXApiObject.h" />
+        <resource-file src="sdk/ios/lib/Pingpp.bundle"/>
+        <source-file src="sdk/ios/lib/libpingppcore.a" framework="true"/>
+        <header-file src="sdk/ios/lib/Pingpp.h"/>
+        <source-file src="sdk/ios/lib/Dependencies/Network/libpingpp+network.a" framework="true"/>
+        <header-file src="sdk/ios/lib/Dependencies/Network/PingppURLResponse.h"/>
+        <header-file src="src/ios/PingppPlugin.h" target-dir="PingppPlugin"/>
+        <source-file src="src/ios/PingppPlugin.m" target-dir="PingppPlugin"/>
 
         <config-file target="config.xml" parent="/widget">
             <feature name="PingppPlugin">
@@ -127,7 +91,18 @@
             </feature>
         </config-file>
 
-        <header-file src="src/ios/PingppPlugin.h" target-dir="PingppPlugin"/>
-        <source-file src="src/ios/PingppPlugin.m" target-dir="PingppPlugin"/>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>weixin</string>
+                <string>wechat</string>
+                <string>alipay</string>
+            </array>
+        </config-file>
+
+        <info>
+            You need to add URL_SCHEME to your iOS project.
+        </info>
     </platform>
+
+    <hook type="before_plugin_install" src="scripts/clone_pingpp_sdk.js" />
 </plugin>
