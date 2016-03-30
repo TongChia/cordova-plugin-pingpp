@@ -54,9 +54,159 @@
         </config-file>
 
         <source-file src="src/android/PingppPlugin.java" target-dir="src/me/tongchia/cordova/"/>
-        <source-file src="sdk/android/lib/pingpp/libs/alipaySingle-20160111.jar" target-dir="libs"/>
-        <source-file src="sdk/android/lib/pingpp/libs/libammsdk.jar" target-dir="libs"/>
-        <source-file src="sdk/android/lib/pingpp/libs/libpingpp-2.1.1.jar" target-dir="libs"/>
+        <framework src="sdk/android/lib/pingpp" custom="true" />
+
+        <!-- Baidu wallet Pay -->
+        <framework src="sdk/android/lib/bdwallet_pay_sdk" custom="true" />
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_SMS" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="application">
+            <activity
+                    android:name="com.baidu.paysdk.login.LoginActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="false"
+                    android:theme="@style/EbpayThemeActivityWelcome"
+                    android:windowSoftInputMode="stateHidden" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.WelcomeActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivityWelcome"
+                    android:windowSoftInputMode="stateHidden" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.OrderHomeActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:hardwareAccelerated="false"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateHidden" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.PayResultActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateHidden" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.PcPwdCheckActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateVisible" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.PwdCheckActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateVisible" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.PwdSetAndConfirmActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateVisible" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.PwdPayActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivitTranslucent"
+                    android:windowSoftInputMode="stateVisible|adjustResize" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.PwdPaySmsActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivitTranslucent"
+                    android:windowSoftInputMode="stateHidden" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.WebViewActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateHidden" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.BindCardNoActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:launchMode="singleTask"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateHidden" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.BindCardDetailActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:launchMode="singleTask"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateVisible|adjustPan" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.BindCardDetailCredit2Activity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:launchMode="singleTask"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateVisible|adjustPan" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.BindCardDetailCreditActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:launchMode="singleTask"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateVisible|adjustPan" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.BindSmsActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="adjustResize" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.SelectBindCardActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:screenOrientation="portrait"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateHidden" />
+            <activity
+                    android:name="com.baidu.paysdk.ui.SignChannelListActivity"
+                    android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+                    android:excludeFromRecents="true"
+                    android:exported="@bool/bd_wallet_switch_global_debug"
+                    android:hardwareAccelerated="false"
+                    android:theme="@style/EbpayThemeActivit"
+                    android:windowSoftInputMode="stateHidden" />
+        </config-file>
     </platform>
 
     <platform name="ios">
@@ -102,6 +252,59 @@
         <info>
             You need to add URL_SCHEME to your iOS project.
         </info>
+
+        <!-- Apple Pay -->
+        <framework src="PassKit.framework" />
+        
+        <source-file src="sdk/ios/lib/Channels/ApplePay/libpingpp+applepay.a" framework="true"/>
+        <header-file src="sdk/ios/lib/Channels/ApplePay/Pingpp+ApplePay.h" />
+
+        <!-- Union Pay -->
+        <source-file src="sdk/ios/lib/Channels/UnionPay/libpingpp+up.a" framework="true"/>
+        <source-file src="sdk/ios/lib/Channels/UnionPay/libUPPayPlugin.a" framework="true"/>
+
+        <!-- Cnp -->
+        <resource-file src="sdk/ios/lib/Channels/Cnp/PassGuardCtrlBundle.bundle"/>
+        <resource-file src="sdk/ios/lib/Channels/Cnp/PingppCnp.bundle"/>
+        <source-file src="sdk/ios/lib/Channels/Cnp/libpingpp+cnp.a" framework="true"/>
+        <header-file src="sdk/ios/lib/Channels/Cnp/Pingpp+Cnp.h" />
+
+        <!-- Baidu wallet Pay -->
+        <framework src="AddressBook.framework" />
+        <framework src="AddressBookUI.framework" />
+        <framework src="AudioToolbox.framework" />
+        <framework src="CoreAudio.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="ImageIO.framework" />
+        <framework src="MapKit.framework" />
+        <framework src="MessageUI.framework" />
+        <framework src="MobileCoreServices.framework" />
+
+        <resource-file src="sdk/ios/lib/Channels/Bfb/BaiduWalletSDKBundle.bundle"/>
+        <source-file src="sdk/ios/lib/Channels/Bfb/libBaiduWalletSDK.a" framework="true"/>
+        <source-file src="sdk/ios/lib/Channels/Bfb/libpingpp+bfb.a" framework="true"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/ASIHttpRequest/ASIHttpRequest.h"/>
+        <source-file src="sdk/ios/lib/Channels/Bfb/Dependencies/ASIHttpRequest/libASIHttpRequest.a" framework="true"/>
+        <source-file src="sdk/ios/lib/Channels/Bfb/Dependencies/BaiduMobStat/libTouchJSON.a" framework="true"/>
+        <source-file src="sdk/ios/lib/Channels/Bfb/Dependencies/BaiduMobStat/BaiduMobStat/libBaiduMobStatForSDK.a" framework="true"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/JSONKit/JSONKit.h"/>
+        <source-file src="sdk/ios/lib/Channels/Bfb/Dependencies/JSONKit/libJSONKit.a" framework="true"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/MKAnnotationView+WebCache.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/NSData+ImageContentType.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/SDImageCache.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/SDWebImageCompat.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/SDWebImageDecoder.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/SDWebImageDownloader.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/SDWebImageDownloaderOperation.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/SDWebImageManager.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/SDWebImageOperation.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/SDWebImagePrefetcher.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/UIButton+WebCache.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/UIImage+GIF.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/UIImage+MultiFormat.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/UIImage+WebP.h"/>
+        <header-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/UIImageView+WebCache.h"/>
+        <source-file src="sdk/ios/lib/Channels/Bfb/Dependencies/SDWebImage/libSDWebImage.a" framework="true"/>
     </platform>
 
     <hook type="before_plugin_install" src="scripts/clone_pingpp_sdk.js" />
